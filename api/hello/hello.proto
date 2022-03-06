@@ -1,0 +1,23 @@
+syntax = "proto3";
+package hello;
+
+option go_package = "github.com/superadj7502/proto-repo/hello;v1";
+
+import "google/api/annotations.proto";
+
+service HelloService {
+  rpc Hello(HelloRequest) returns (HelloReply) {
+    option (google.api.http) = {
+      get: "/v1/hello"
+    };
+  }
+}
+
+message HelloRequest {
+  string name = 1;
+  string age = 2;
+}
+
+message HelloReply {
+  string msg = 1;
+}
